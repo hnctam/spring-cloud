@@ -1,0 +1,10 @@
+version: "3.7"
+services:
+    dcp-service:
+        build:
+            context: ./dcp-service
+            dockerfile: Dockerfile
+        container_name: dcp-service-01
+        image: ami/dcp-service
+        ports:
+          - "8801:8801"

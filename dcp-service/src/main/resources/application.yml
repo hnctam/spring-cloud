@@ -1,3 +1,6 @@
+spring:
+  profiles:
+    active: h2
 server:
   port: 8801
   servlet:
@@ -5,3 +8,24 @@ server:
 management:
   security:
     enabled: false
+
+---
+spring:
+  profiles: h2
+  datasource:
+    platform: h2
+    url: jdbc:hsqldb:mem:midas
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    generate-ddl: true
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        default_schema: PUBLIC
+server.ssl.enabled: false

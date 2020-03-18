@@ -2,8 +2,8 @@ FROM anapsix/alpine-java:8
 VOLUME /ami
 ENV port 8801
 
-ENV serverName ami
-ENV spring.profiles.active dev-server
+ENV serverName dcp-service
+ENV spring.profiles.active h2
 ADD ./target/dcp-service-0.0.1-SNAPSHOT.jar /app/app.jar
 ADD ./src/main/resources/application.yml /app/config/
 
