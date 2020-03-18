@@ -12,6 +12,7 @@
     <module>dcp-common</module>
     <module>demo-service</module>
     <module>dcp-service</module>
+    <module>dcp-validator</module>
   </modules>
 
   <build>

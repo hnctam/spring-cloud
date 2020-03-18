@@ -8,3 +8,11 @@ services:
         image: ami/dcp-service
         ports:
           - "8801:8801"
+    dcp-validator:
+        build:
+            context: ./dcp-validator
+            dockerfile: Dockerfile
+        container_name: dcp-validator-01
+        image: ami/dcp-validator
+        ports:
+            - "8802:8802"
