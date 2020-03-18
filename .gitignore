@@ -1,0 +1,11 @@
+**/target
+*.log
+*.iml
+*.pdf
+**/bin
+**/.scannerwork/**
+**/.idea/**
+**/*.classpath
+**/.factorypath
+**/*.project
+**/.settings

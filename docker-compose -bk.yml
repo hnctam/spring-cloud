@@ -1,0 +1,32 @@
+version: "3.7"
+services:
+    nginx:
+        image: nginx:alpine
+        restart: always
+        ports:
+          - "8088:80"
+          - "8443:443"
+        volumes:
+          - ./nginx/conf.d:/etc/nginx/conf.d
+        depends_on:
+          - dcp-service
+    ami-mysql:
+        container_name: ami-mysql
+        image: mysql/mysql-server:5.7
+        environment:
+            MYSQL_DATABASE: midas-db
+            MYSQL_ROOT_PASSWORD: ami@123
+            MYSQL_ROOT_HOST: '%'
+        ports:
+          - "3306:3306"
+        restart: unless-stopped
+    dcp-service:
+        build:
+            context: ./dcp-service
+            dockerfile: Dockerfile
+        container_name: dcp-service-01
+        image: ami/dcp-service
+        ports:
+          - "8801:8801"
+        depends_on:
+          - ami-mysql
