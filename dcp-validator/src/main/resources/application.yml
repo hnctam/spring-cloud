@@ -1,13 +1,18 @@
 spring:
   profiles:
     active: h2
+  application:
+    name: dcp-validator
 server:
   port: 8802
   servlet:
     context-path: /ami
-management:
-  security:
-    enabled: false
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://${EUREKA_SERVER}:${EUREKA_PORT}/eureka
+#  instance:
+#    preferIpAddress: true
 
 ---
 spring:
