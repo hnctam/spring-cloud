@@ -1,0 +1,22 @@
+hystrix.command.fallbackcmd.execution.isolation.thread.timeoutInMilliseconds: 2000
+spring:
+  profiles:
+    active: h2
+  application:
+    name: api-gateway
+server:
+  port: 9999
+  servlet:
+    context-path: /ami
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://${EUREKA_SERVER}:${EUREKA_PORT}/eureka
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream
+---
+spring:
+  profiles: h2
