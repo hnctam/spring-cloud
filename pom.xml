@@ -3,13 +3,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.ami.pcf</groupId>
-  <artifactId>ami-spring-cloud</artifactId>
+  <artifactId>spring-cloud</artifactId>
   <version>1.0.0-SNAPSHOT</version>
-  <name>ami-spring-cloud</name>
+  <name>spring-cloud</name>
   <packaging>pom</packaging>
 
   <modules>
     <module>dcp-common</module>
+    <module>discovery-eureka</module>
     <module>demo-service</module>
     <module>dcp-service</module>
     <module>dcp-validator</module>

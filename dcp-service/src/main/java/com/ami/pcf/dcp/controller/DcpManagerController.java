@@ -44,7 +44,7 @@ public class DcpManagerController {
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public DataCollectionPlan create(@RequestBody final DataCollectionPlan dcp) {
-        log.info("Create new DCP={} with mode = {}", dcp);
+        log.info("Create new DCP = {} with mode = {}", dcp);
         if (null == dcp) {
             throw new AppException("Expected not null DataCollectionPlan instance");
         }
