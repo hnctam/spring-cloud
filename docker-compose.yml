@@ -1,11 +1,19 @@
 version: "3.7"
 services:
-    discovery-eureka:
+    discovery-service:
         build:
             context: ./discovery-service
             dockerfile: Dockerfile
         container_name: discovery-service
-        image: ami/cloud-eureka
+        image: ami/discovery-service
+        ports:
+          - "8761:8761"
+    gateway-service:
+        build:
+            context: ./gateway-service
+            dockerfile: Dockerfile
+        container_name: gateway-service
+        image: ami/gateway-service
         ports:
           - "8761:8761"
     dcp-service:
@@ -19,7 +27,7 @@ services:
             - EUREKA_PORT=8761
         ports:
           - "8801:8801"
-    dcp-validator:
+    dcp-validator-service:
         build:
             context: ./dcp-validator-service
             dockerfile: Dockerfile
