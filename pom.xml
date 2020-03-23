@@ -9,8 +9,9 @@
   <packaging>pom</packaging>
 
   <modules>
+    <module>discovery-service</module>
+    <module>gateway-service</module>
     <module>dcp-common</module>
-    <module>discovery-eureka</module>
     <module>demo-service</module>
     <module>dcp-service</module>
     <module>dcp-validator</module>
