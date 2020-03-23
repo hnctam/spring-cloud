@@ -8,9 +8,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <relativePath>..</relativePath>
   </parent>
-  <groupId>com.ami.pcf</groupId>
   <artifactId>dcp-service</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
   <name>dcp-service</name>
   <description>DCP Service project with Spring Boot</description>
   <properties>
@@ -76,7 +74,6 @@
     <dependency>
       <groupId>com.google.guava</groupId>
       <artifactId>guava</artifactId>
-      <version>${guava.version}</version>
     </dependency>
     <dependency>
       <groupId>org.apache.commons</groupId>

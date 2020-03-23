@@ -8,9 +8,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <relativePath>..</relativePath>
   </parent>
-  <groupId>com.ami.pcf</groupId>
   <artifactId>gateway-service</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
   <name>gateway-service</name>
   <description>Gateway Service</description>
 

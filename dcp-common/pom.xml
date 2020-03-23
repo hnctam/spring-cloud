@@ -8,9 +8,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <relativePath>..</relativePath>
   </parent>
-  <groupId>com.ami.pcf</groupId>
   <artifactId>dcp-common</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
   <name>dcp-common</name>
   <description>DCP Common Library</description>
   <properties>
@@ -59,7 +57,6 @@
     <dependency>
       <groupId>com.google.guava</groupId>
       <artifactId>guava</artifactId>
-      <version>${guava.version}</version>
     </dependency>
     <dependency>
       <groupId>org.apache.commons</groupId>
