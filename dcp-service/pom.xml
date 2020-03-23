@@ -3,42 +3,19 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.2.5.RELEASE</version>
-    <relativePath/>
-    <!-- lookup parent from repository -->
+    <groupId>com.ami.pcf</groupId>
+    <artifactId>spring-cloud</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <relativePath>..</relativePath>
   </parent>
   <groupId>com.ami.pcf</groupId>
   <artifactId>dcp-service</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>dcp-service</name>
   <description>DCP Service project with Spring Boot</description>
-
   <properties>
     <java.version>1.8</java.version>
-    <javax.servlet-api.version>3.1.0</javax.servlet-api.version>
-    <!-- various -->
-    <javax.validation.version>1.1.0.Final</javax.validation.version>
-    <dcp.version>0.0.1-SNAPSHOT</dcp.version>
-    <!-- swagger -->
-    <springfox-swagger.version>2.9.2</springfox-swagger.version>
-    <!-- util -->
-    <guava.version>26.0-jre</guava.version>
-    <commons-fileupload.version>1.4</commons-fileupload.version>
-    <jackson.version>2.9.8</jackson.version>
   </properties>
-  <dependencyManagement>
-    <dependencies>
-      <dependency>
-        <groupId>org.springframework.cloud</groupId>
-        <artifactId>spring-cloud-starter-parent</artifactId>
-        <version>Hoxton.SR3</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
   <dependencies>
     <dependency>
       <groupId>org.springframework.cloud</groupId>
@@ -73,7 +50,7 @@
     <dependency>
       <groupId>com.ami.pcf</groupId>
       <artifactId>dcp-common</artifactId>
-      <version>${dcp.version}</version>
+      <version>${app.version}</version>
     </dependency>
     <!-- marshalling -->
     <dependency>
@@ -142,7 +119,7 @@
     <dependency>
       <groupId>org.mockito</groupId>
       <artifactId>mockito-all</artifactId>
-      <version>1.9.5</version>
+      <version>${mockito-all.version}</version>
       <scope>test</scope>
     </dependency>
     <dependency>
@@ -151,7 +128,6 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
-
   <build>
     <plugins>
       <plugin>
@@ -160,11 +136,4 @@
       </plugin>
     </plugins>
   </build>
-  <repositories>
-    <repository>
-      <id>jcenter-snapshots</id>
-      <name>jcenter</name>
-      <url>http://oss.jfrog.org/artifactory/oss-snapshot-local/</url>
-    </repository>
-  </repositories>
 </project>
