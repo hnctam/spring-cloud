@@ -21,10 +21,10 @@ services:
           - "8801:8801"
     dcp-validator:
         build:
-            context: ./dcp-validator
+            context: ./dcp-validator-service
             dockerfile: Dockerfile
-        container_name: dcp-validator-01
-        image: ami/dcp-validator
+        container_name: dcp-validator-service-01
+        image: ami/dcp-validator-service
         environment:
             - EUREKA_SERVER=discovery-service
             - EUREKA_PORT=8761

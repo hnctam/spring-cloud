@@ -2,9 +2,9 @@ FROM anapsix/alpine-java:8
 VOLUME /ami
 ENV port 8802
 
-ENV serverName ami/dcp-validator
+ENV serverName ami/dcp-validator-service
 ENV spring.profiles.active h2
-ADD ./target/dcp-validator-0.0.1-SNAPSHOT.jar /app/app.jar
+ADD ./target/dcp-validator-service-0.0.1-SNAPSHOT.jar /app/app.jar
 ADD ./src/main/resources/application.yml /app/config/
 
 EXPOSE 8802

@@ -20,7 +20,7 @@
     <module>dcp-common</module>
     <module>dcp-service</module>
     <module>demo-service</module>
-    <!--module>dcp-validator</module-->
+    <module>dcp-validator-service</module>
   </modules>
 
   <build>
