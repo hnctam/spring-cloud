@@ -1,5 +1,6 @@
 package com.ami.pcf.dcp.controller;
 
+import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,13 +19,17 @@ import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
-@RequestMapping("/api/v1/dcp")
+@RequestMapping("/api/v1/dcp-validator")
 @Api(value = "Data Validator Service")
 @Slf4j
 public class DcpValidatorController {
 
-    @Autowired
     private DcpValidatorService service;
+
+    @Autowired
+    public DcpValidatorController(DcpValidatorService service) {
+        this.service = service;
+    }
 
     @RequestMapping(path = "/validate", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.OK)

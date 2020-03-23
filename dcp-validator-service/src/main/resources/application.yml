@@ -2,7 +2,7 @@ spring:
   profiles:
     active: h2
   application:
-    name: dcp-validator
+    name: dcp-validator-service
 server:
   port: 8802
   servlet:

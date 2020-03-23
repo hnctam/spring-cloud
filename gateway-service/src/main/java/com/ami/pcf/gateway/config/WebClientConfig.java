@@ -17,20 +17,20 @@ public class WebClientConfig {
     @Bean
     public RouteLocator gatewayRoutes(RouteLocatorBuilder builder) {
         return builder.routes()
-                .route(r -> r.path("/api/v1/first/**")
-                        .filters(f -> f.rewritePath("/api/v1/first/(?<remains>.*)", "/${remains}")
-                                .addRequestHeader("X-first-Header", "first-service-header")
+                .route(r -> r.path("/api/v1/dcp/**")
+                        .filters(f -> f.rewritePath("/api/v1/dcp/(?<remains>.*)", "/${remains}")
+                                .addRequestHeader("X-first-Header", "dcp-service-header")
                                 .hystrix(c -> c.setName("hystrix")
                                         .setFallbackUri("forward:/fallback/first")))
-                        .uri("lb://FIRST-SERVICE/")
-                        .id("first-service"))
+                        .uri("lb://dcp-service/")
+                        .id("dcp-service"))
 
-                .route(r -> r.path("/api/v1/second/**")
-                        .filters(f -> f.rewritePath("/api/v1/second/(?<remains>.*)", "/${remains}")
+                .route(r -> r.path("/api/v1/dcp-validator/**")
+                        .filters(f -> f.rewritePath("/api/v1/dcp-validator/(?<remains>.*)", "/${remains}")
                                 .hystrix(c -> c.setName("hystrix")
                                         .setFallbackUri("forward:/fallback/second")))
-                        .uri("lb://SECOND-SERVICE/")
-                        .id("second-service"))
+                        .uri("lb://dcp-validator-service/")
+                        .id("dcp-validator-service"))
                 .build();
     }
 }
