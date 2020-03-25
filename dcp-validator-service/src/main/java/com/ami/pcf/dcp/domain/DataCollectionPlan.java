@@ -16,7 +16,7 @@ import lombok.Data;
 public class DataCollectionPlan {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotNull(message = "Data Collection Plan ID cannot be null")

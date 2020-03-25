@@ -1,18 +1,24 @@
 spring:
   profiles:
-    active: h2
+    active: dev
   application:
     name: dcp-service
 server:
-  port: 8801
+  port: ${port}
   servlet:
     context-path: /ami
+logging:
+  level:
+    org.hibernate.SQL: INFO
+    com.netflix.eureka: WARN
+    com.netflix.discovery: WARN
+
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://${EUREKA_SERVER}:${EUREKA_PORT}/eureka
-#  instance:
-#    preferIpAddress: true
+      defaultZone: http://${discoveryServer}:${discoveryPort}/eureka
+  instance:
+    preferIpAddress: true
 
 ---
 spring:
@@ -31,6 +37,30 @@ spring:
     show-sql: true
     properties:
       hibernate:
+        format_sql: true
+        default_schema: PUBLIC
+server.ssl.enabled: false
+
+---
+spring:
+  profiles: dev
+  datasource:
+    platform: dev
+    url: jdbc:mysql://localhost:3306/ami-db?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false
+    username: root
+    password: ami@123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    initialization-mode: always
+  jpa:
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    generate-ddl: true
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
         format_sql: true
         default_schema: PUBLIC
 server.ssl.enabled: false

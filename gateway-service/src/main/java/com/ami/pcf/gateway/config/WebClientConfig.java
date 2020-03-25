@@ -17,9 +17,9 @@ public class WebClientConfig {
     @Bean
     public RouteLocator gatewayRoutes(RouteLocatorBuilder builder) {
         return builder.routes()
-                .route(r -> r.path("/api/v1/dcp/**")
-                        .filters(f -> f.rewritePath("/api/v1/dcp/(?<remains>.*)", "/${remains}")
-                                .addRequestHeader("X-first-Header", "dcp-service-header")
+                .route(r -> r.path("/ami/api/v1/dcp/**")
+                        .filters(f -> f.rewritePath("/ami/api/v1/dcp/(?<remains>.*)", "/${remains}")
+                                // .addRequestHeader("X-dcp-service-Header", "dcp-service-header")
                                 .hystrix(c -> c.setName("hystrix")
                                         .setFallbackUri("forward:/fallback/first")))
                         .uri("lb://dcp-service/")

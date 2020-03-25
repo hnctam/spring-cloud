@@ -50,6 +50,10 @@
       <artifactId>dcp-common</artifactId>
       <version>${app.version}</version>
     </dependency>
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+    </dependency>
     <!-- marshalling -->
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>

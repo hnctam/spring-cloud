@@ -1,22 +1,22 @@
 hystrix.command.fallbackcmd.execution.isolation.thread.timeoutInMilliseconds: 2000
 spring:
-  profiles:
-    active: h2
   application:
-    name: api-gateway
+    name: gateway-service
 server:
-  port: 9999
+  port: ${port}
   servlet:
     context-path: /ami
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://${EUREKA_SERVER}:${EUREKA_PORT}/eureka
+      defaultZone: http://${discoveryServer}:${discoveryPort}/eureka
+  instance:
+    preferIpAddress: true
+logging:
+  level:
+    com.netflix.discovery: WARN
 management:
   endpoints:
     web:
       exposure:
         include: hystrix.stream
----
-spring:
-  profiles: h2

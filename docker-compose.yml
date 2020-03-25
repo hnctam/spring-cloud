@@ -6,6 +6,8 @@ services:
             dockerfile: Dockerfile
         container_name: discovery-service
         image: ami/discovery-service
+        environment:
+            - port=8761
         ports:
           - "8761:8761"
     gateway-service:
@@ -14,8 +16,10 @@ services:
             dockerfile: Dockerfile
         container_name: gateway-service
         image: ami/gateway-service
+        environment:
+            - port=9999
         ports:
-          - "8761:8761"
+          - "9999:9999"
     dcp-service:
         build:
             context: ./dcp-service
@@ -23,8 +27,9 @@ services:
         container_name: dcp-service-01
         image: ami/dcp-service
         environment:
-            - EUREKA_SERVER=discovery-service
-            - EUREKA_PORT=8761
+            - discoveryServer=discovery-service
+            - discoveryPort=8761
+            - port=8801
         ports:
           - "8801:8801"
     dcp-validator-service:
@@ -34,7 +39,8 @@ services:
         container_name: dcp-validator-service-01
         image: ami/dcp-validator-service
         environment:
-            - EUREKA_SERVER=discovery-service
-            - EUREKA_PORT=8761
+            - discoveryServer=discovery-service
+            - discoveryPort=8761
+            - port=8802
         ports:
             - "8802:8802"
