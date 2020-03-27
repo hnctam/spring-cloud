@@ -1,0 +1,59 @@
+spring:
+  profiles:
+    active: h2
+  application:
+    name: material-service
+server:
+  port: ${port}
+  servlet:
+    context-path: /ami
+logging:
+  level:
+    org.hibernate.SQL: INFO
+    com.netflix.eureka: WARN
+    com.netflix.discovery: WARN
+
+---
+spring:
+  profiles: h2
+  datasource:
+    platform: h2
+    url: jdbc:hsqldb:mem:midas
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    generate-ddl: true
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        default_schema: PUBLIC
+server.ssl.enabled: false
+
+---
+spring:
+  profiles: dev
+  datasource:
+    platform: dev
+    url: jdbc:mysql://${db-server}:3306/ami-db?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false
+    username: root
+    password: ami@123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    initialization-mode: always
+  jpa:
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    generate-ddl: true
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+        format_sql: true
+        default_schema: PUBLIC
+server.ssl.enabled: false

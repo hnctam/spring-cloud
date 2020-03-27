@@ -1,0 +1,13 @@
+version: "3.7"
+services:
+    material-service:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        container_name: material-service-01
+        image: ami/material-service
+        environment:
+            - port=8803
+            - db-server=192.168.0.35
+        ports:
+          - "8803:8803"

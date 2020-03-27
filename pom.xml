@@ -21,6 +21,7 @@
     <module>dcp-service</module>
     <module>demo-service</module>
     <module>dcp-validator-service</module>
+    <module>material-service</module>
   </modules>
 
   <build>
